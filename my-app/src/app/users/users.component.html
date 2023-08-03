@@ -1,0 +1,45 @@
+<p>users works!</p>
+
+<div class="p-5">
+    <form #Form="ngForm" (submit)="onSubmit(data)">
+        <div class="col-5">
+            <label class="form-label">Name*</label>
+            <input class="form-control" type="text" name="name" ngModel />
+        </div>
+        <div class="col-5">
+            <label class="form-label">Age*</label>
+            <input class="form-control" type="number" name="age" ngModel />
+        </div>
+        <div class="col-5">
+            <label class="form-label">Email*</label>
+            <input class="form-control" type="email" name="email" ngModel />
+        </div>
+        <div class="col-5 mt-4 text-center"><button class="btn btn-primary" type="submit">{{!editMode ? 'Submit':'Upadte'}}</button></div>
+    </form>
+</div>
+
+
+<div>
+    <table class="table">
+        <thead>
+             <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+             </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let xdata of UserData">
+                <td>{{xdata.id}}</td>
+                <td>{{xdata.name}}</td>
+                <td>{{xdata.age}}</td>
+                <td>{{xdata.email}}</td>
+                <td><button class="btn btn-primary" (click)="onEdit(xdata.id)">Edit</button></td>
+                <td><button class="btn btn-danger" (click)="onDelete(xdata.id)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
